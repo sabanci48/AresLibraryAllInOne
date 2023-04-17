@@ -1,9 +1,13 @@
-Feature: As a librarian, I want to create a new user
-  @us04
+Feature: Default
+
+  @B28G7-307
+  Scenario: US04 Test case
+  @us04 @B28G7-307
   Scenario: Create a new user API
     Given I logged Library api as a "librarian" AN
     And Accept header is "application/json" AN
     And Request Content Type header is "application/x-www-form-urlencoded" AN
+		    # application/x-www-form-urlencoded
     And I create a random "user" as request body AN
     When I send POST request to "/add_user" endpoint AN
     Then status code should be 200 AN
@@ -12,7 +16,7 @@ Feature: As a librarian, I want to create a new user
     And "user_id" field should not be null AN
 
 
-
+  @us04 @db @ui @B28G7-307
   Scenario: Create a new user all layers
     Given I logged Library api as a "librarian" AN
     And Accept header is "application/json" AN
